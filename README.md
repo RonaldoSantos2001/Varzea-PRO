@@ -51,7 +51,7 @@ O banco de dados inicia vazio. Para testar o sistema, é obrigatório registrar 
 1. Na tela de login inicial, clique em **"Registre-se aqui"**.
 2. Preencha seus dados (Nome, Login, Senha e Confirmação).
 3. Após o redirecionamento, faça o login com as credenciais recém-criadas.
-4. **Fluxo recomendado de teste:** Para evitar erros de chave estrangeira, cadastre os itens na seguinte ordem: Equipes -> Jogadores -> Campeonatos -> Partidas.
+4. **Fluxo recomendado de teste:** Para evitar erros de chave estrangeira, cadastre os itens na seguinte ordem: Campeonatos -> Equipes -> Jogadores -> Partidas.
 
 ## 📊 Diagrama UML
 
