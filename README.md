@@ -4,6 +4,7 @@ Sistema web para gerenciamento de campeonatos de futebol amador, desenvolvido co
 
 Alunos:
 João Vitor Maciel Nai // RA:082230004
+
 Ronaldo de Oliveira Santos // RA:082230031
 
 ## 🛠️ Tecnologias Utilizadas
