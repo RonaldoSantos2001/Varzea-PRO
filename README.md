@@ -1,6 +1,6 @@
 # ⚽ Varzea Pro - Gestão de Futebol de Várzea
 
-Sistema web para gerenciamento de campeonatos de futebol amador, desenvolvido como requisito para a disciplina de Linguagem de Programação 2. O sistema permite o controle completo de torneios, equipes, escalação de jogadores e agendamento de partidas.
+Sistema web para gerenciamento de campeonatos de futebol amador, desenvolvido como requisito para a disciplina de Linguagem de Programação 2 (Centro Educacional Fundação Salvador Arena). O sistema permite o controle completo de torneios, equipes, escalação de jogadores e agendamento de partidas.
 
 ## 🛠️ Tecnologias Utilizadas
 
@@ -25,5 +25,34 @@ Sistema web para gerenciamento de campeonatos de futebol amador, desenvolvido co
 Como a aplicação utiliza o banco de dados em memória **H2**, os dados são zerados a cada reinicialização do servidor. Siga os passos abaixo para testar corretamente:
 
 1. Clone este repositório:
-   ```bash
-   git clone [https://github.com/SeuUsuario/Varzea-PRO.git](https://github.com/SeuUsuario/Varzea-PRO.git)
+```bash
+git clone [https://github.com/SeuUsuario/Varzea-PRO.git](https://github.com/SeuUsuario/Varzea-PRO.git)
+```
+
+2. Abra o projeto na sua IDE de preferência (NetBeans, Eclipse, IntelliJ).
+
+3. Execute o comando Maven para baixar as dependências e compilar:
+```bash
+mvn clean install
+```
+
+4. Inicie a aplicação executando a classe principal `CampeonatoApplication.java` ou via terminal:
+```bash
+mvn spring-boot:run
+```
+
+5. Acesse o sistema no navegador:
+* **URL:** `http://localhost:8081`
+
+### 🔑 Primeiro Acesso (Importante para Avaliação)
+
+O banco de dados inicia vazio. Para testar o sistema, é obrigatório registrar o primeiro administrador:
+
+1. Na tela de login inicial, clique em **"Registre-se aqui"**.
+2. Preencha seus dados (Nome, Login, Senha e Confirmação).
+3. Após o redirecionamento, faça o login com as credenciais recém-criadas.
+4. **Fluxo recomendado de teste:** Para evitar erros de chave estrangeira, cadastre os itens na seguinte ordem: Equipes -> Jogadores -> Campeonatos -> Partidas.
+
+## 📊 Diagrama UML
+
+> **Nota:** O diagrama UML estrutural do sistema (Classes e Relacionamentos) está disponível na pasta `/docs` deste repositório.
