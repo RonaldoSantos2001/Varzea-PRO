@@ -2,6 +2,10 @@
 
 Sistema web para gerenciamento de campeonatos de futebol amador, desenvolvido como requisito para a disciplina de Linguagem de Programação 2 (Centro Educacional Fundação Salvador Arena). O sistema permite o controle completo de torneios, equipes, escalação de jogadores e agendamento de partidas.
 
+Alunos:
+João Vitor Maciel Nai // RA:082230004
+Ronaldo de Oliveira Santos // RA:082230031
+
 ## 🛠️ Tecnologias Utilizadas
 
 * **Linguagem:** Java 17
