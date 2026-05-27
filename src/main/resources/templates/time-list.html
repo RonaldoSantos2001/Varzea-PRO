@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="UTF-8">
+        <title>Equipes - Varzea Pro</title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+        <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;700&display=swap" rel="stylesheet">
+        <style>
+            body {
+                background-color: #121212;
+                color: #f1f1f1;
+                font-family: 'Segoe UI', sans-serif;
+            }
+            .street-font {
+                font-family: 'Oswald', sans-serif;
+                text-transform: uppercase;
+            }
+            .navbar-futebol {
+                background-color: #000 !important;
+                border-bottom: 4px solid #39ff14;
+            }
+            .neon-text {
+                color: #39ff14 !important;
+            }
+            .card-dark {
+                background-color: #1e1e1e;
+                border: 1px solid #333;
+            }
+            .btn-street-primary {
+                background-color: #39ff14;
+                color: #000;
+                border: none;
+                font-weight: bold;
+            }
+            .btn-street-outline {
+                border: 1px solid #555;
+                color: #ddd;
+                background: transparent;
+            }
+            .table-dark {
+                background-color: #1e1e1e;
+            }
+        </style>
+    </head>
+    <body>
+
+        <div th:replace="~{fragments :: navbar}"></div>
+
+        <div class="container">
+            <div class="d-flex justify-content-between align-items-center mb-4">
+                <h2 class="fw-bold neon-text street-font mb-0"><i class="bi bi-shield-shaded me-2"></i> Equipes Cadastradas</h2>
+                <a th:href="@{/times/novo}" class="btn btn-street-primary"><i class="bi bi-plus-lg me-1"></i> Nova Equipe</a>
+            </div>
+
+            <div class="card card-dark shadow">
+                <div class="card-body p-0">
+                    <div class="table-responsive">
+                        <table class="table table-dark table-hover mb-0">
+                            <thead class="table-secondary text-dark">
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Nome da Equipe</th>
+                                    <th>Torneio Vinculado</th>
+                                    <th class="text-center">Ações</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr th:each="time : ${times}" th:if="${time != null}">
+                                    <td th:text="${time.id}"></td>
+                                    <td class="fw-bold" th:text="${time.nome}"></td>
+                                    <td th:text="${time.campeonato?.nome ?: 'Sem Torneio'}"></td>
+                                    <td class="text-center">
+                                        <a th:href="@{/times/editar/{id}(id=${time.id})}" class="btn btn-sm btn-outline-warning me-2">
+                                            <i class="bi bi-pencil"></i>
+                                        </a>
+                                        <a th:href="@{/times/excluir/{id}(id=${time.id})}" 
+                                           class="btn btn-sm btn-outline-danger"
+                                           onclick="return confirm('Tem certeza que deseja excluir esta equipe?');">
+                                            <i class="bi bi-trash"></i>
+                                        </a>
+                                    </td>
+                                </tr>
+                                <tr th:if="${#lists.isEmpty(times)}">
+                                    <td colspan="4" class="text-center py-4 text-muted">Nenhuma equipe cadastrada.</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </body>
+</html>

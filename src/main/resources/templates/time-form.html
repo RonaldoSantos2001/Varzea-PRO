@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Cadastro de Equipe - Fut Varzea</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body { background-color: #121212; color: #f1f1f1; font-family: 'Segoe UI', sans-serif; }
+        .street-font { font-family: 'Oswald', sans-serif; text-transform: uppercase; }
+        .neon-text { color: #39ff14 !important; }
+        .card-dark { background-color: #1e1e1e; border: 1px solid #333; }
+        .form-label { color: #ffffff !important; font-weight: bold; }
+        .form-control, .form-select { background-color: #2a2a2a !important; border: 1px solid #444 !important; color: #ffffff !important; }
+        .form-control:focus { border-color: #39ff14 !important; box-shadow: 0 0 0 0.25rem rgba(57, 255, 20, 0.25) !important; }
+        .btn-street-primary { background-color: #39ff14; color: #000; border: none; font-weight: bold; }
+        .btn-street-outline { border: 1px solid #555; color: #ddd; background: transparent; }
+    </style>
+</head>
+<body>
+
+    <div th:replace="~{fragments :: navbar}"></div>
+
+    <div class="container" style="max-width: 600px;">
+        <div class="card card-dark shadow">
+            <div class="card-header border-secondary bg-dark p-3">
+                <h4 class="mb-0 fw-bold neon-text street-font"><i class="bi bi-shield-plus me-2"></i> Cadastro de Equipe</h4>
+            </div>
+            <div class="card-body p-4">
+                <form th:action="@{/times/salvar}" th:object="${time}" method="post">
+                    <input type="hidden" th:field="*{id}">
+                    
+                    <div class="mb-4">
+                        <label class="form-label">Nome da Equipe</label>
+                        <input type="text" th:field="*{nome}" class="form-control" required>
+                    </div>
+
+                    <div class="mb-4">
+                        <label class="form-label">Campeonato Associado</label>
+                        <select class="form-select" th:field="*{campeonato.id}" required>
+                            <option value="" class="text-dark">Selecione um campeonato...</option>
+                            <option th:each="camp : ${listaCampeonatos}" th:value="${camp.id}" th:text="${camp.nome}"></option>
+                        </select>
+                    </div>
+
+                    <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                        <a th:href="@{/times/listar}" class="btn btn-street-outline px-4">Cancelar</a>
+                        <button type="submit" class="btn btn-street-primary px-4 fw-bold">Salvar Equipe</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
