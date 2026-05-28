@@ -62,7 +62,6 @@ public class PartidaController {
 
     @GetMapping("/editar/{id}")
     public String editar(@PathVariable("id") Long id, Model model) {
-        // CORREÇÃO: Usamos o serviço em vez do repositório
         Partida partida = partidaService.buscarPorId(id); 
         model.addAttribute("partida", partida);
         

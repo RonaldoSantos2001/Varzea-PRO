@@ -25,7 +25,7 @@ public class PartidaService {
             throw new IllegalArgumentException("Erro crítico: Uma equipe não pode jogar contra si mesma.");
         }
 
-        // Regra de negócio 3: Impede o agendamento de partidas no passado
+        // Regra de negócio 2: Impede o agendamento de partidas no passado
         if (partida.getDataHora() != null && partida.getDataHora().isBefore(LocalDateTime.now())) {
             throw new IllegalArgumentException("Erro de agendamento: A data da partida não pode ser no passado.");
         }

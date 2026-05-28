@@ -53,7 +53,6 @@ public class TimeController {
         Time time = timeService.buscarPorId(id);
         model.addAttribute("time", time);
         
-        // CORREÇÃO: Agora o campeonatoService está disponível aqui
         model.addAttribute("listaCampeonatos", campeonatoService.listarTodos());
         
         return "time-form";

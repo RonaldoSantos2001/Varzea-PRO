@@ -28,19 +28,16 @@ public class UsuarioServiceTest {
 
     @Test
     public void deveSalvarUsuarioComSenhaCriptografada() {
-        // Preparação do objeto de teste
         Usuario usuario = new Usuario();
         usuario.setUsername("admin");
         usuario.setSenha("123456");
-        // O teste antigo exige que o email seja esse, então setamos explicitamente aqui
         usuario.setEmail("teste@email.com"); 
 
         when(passwordEncoder.encode("123456")).thenReturn("senhaCriptografada");
 
-        // Execução
         usuarioService.registrarUsuario(usuario, "123456");
 
-        // Verificações corrigidas
+        
         assertEquals("senhaCriptografada", usuario.getSenha());
         assertEquals("ROLE_ADMIN", usuario.getRole());
         assertEquals("teste@email.com", usuario.getEmail()); 
@@ -56,7 +53,6 @@ public class UsuarioServiceTest {
             usuarioService.registrarUsuario(usuario, "senhaErrada");
         });
 
-        // O texto exigido pelo teste agora reflete exatamente o que está no UsuarioService
         assertEquals("As senhas não coincidem. Tente novamente.", exception.getMessage());
     }
 }
